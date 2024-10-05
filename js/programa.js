@@ -25,13 +25,19 @@ const respuestas = [
     ["Chile", "EEUU", "China", "Indonesia"]
 ];
 
-let numPregunta, correcta, cantidadPreguntas = 5;
+
+// VARIABLES Y CONSTANTES
+let numPregunta, correcta, cantidadPreguntas = 5, tiempoTotal; // El tiempo total se expresa en miliseg
+const inicioJuego = new Date(); // Se crea con la fecha actual
+
+
+// FUNCIONES DEL PROGRAMA
 
 function ordenAleatorio(array){
     let arrayAux = [];
 
     for (let i = 0; i < array[numPregunta].length; i++) {
-        let indiceAleatorio = Math.trunc(Math.random() * (array[numPregunta].length - 0) + 0);
+        let indiceAleatorio = Math.floor(Math.random() * (array[numPregunta].length - 0) + 0);
         let valor = array[numPregunta][indiceAleatorio];
 
         if (arrayAux.indexOf(valor)==-1) {
@@ -48,7 +54,7 @@ function ordenAleatorio(array){
 function validar(valor){
 
     if (valor.value==correcta) {
-        alert("Respuesta CORRECTA");     
+        alert("Respuesta CORRECTA");
     }else {
         alert("Respuesta INCORRECTA");
     }
@@ -57,14 +63,24 @@ function validar(valor){
     if (cantidadPreguntas!=0) {
         selectPregunta();
     }else{
-        window.open("resultados.html", "_self");
+        const finJuego = new Date(); // Se crea con la fecha actual       
+        tiempoTotal = finJuego - inicioJuego; // Devuelve el resultado en miliseg
+
+        if (tiempoTotal<60000) { // Si es menor a un minuto el mensaje será en seg
+            // console.log("Tardes " + (tiempoTotal/1000).toFixed(2) +" segundo(s) en responder");
+        }else {
+            // console.log("Tiempo " + (tiempoTotal/60000).toFixed(2) +" minuto(s) en responder"); // Si no, será en min
+        }
+        
+        // window.open("resultados.html", "_self");
     }
     
 }
 
 
 function selectPregunta(){
-    numPregunta = Math.trunc(Math.random() * (preguntas.length - 0) + 0);
+
+    numPregunta = Math.floor(Math.random() * (preguntas.length - 0) + 0);
     let pregunta = preguntas[numPregunta];
     correcta = respuestas[numPregunta][0];
     let resAleatorias = ordenAleatorio(respuestas);
@@ -72,11 +88,9 @@ function selectPregunta(){
     document.getElementById("pregunta").innerHTML = pregunta;
 
     for (let i = 0; i < resAleatorias.length; i++) {
-        console.log(document.getElementById("boton"+(i+1)).innerHTML = resAleatorias[i]);
+        document.getElementById("boton"+(i+1)).innerHTML = resAleatorias[i];
         document.getElementById("boton"+(i+1)).value = resAleatorias[i];
     }
-    
-
 }
 
 selectPregunta();
