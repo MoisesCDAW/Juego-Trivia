@@ -1,6 +1,7 @@
 
 // VARIABLES
 let correcta, contadorPreguntas, cantidadPreguntas, finJuego;
+let timeOut;
 
 // ARRAYS VARIABLES
 let resAleatorias = [], sesionRespuestas = [];
@@ -13,6 +14,7 @@ function temporizador(params) {
 
 
 function validarRespuesta(respuesta){
+    clearTimeout(timeOut);
     let valida = false;
 
     cantidadPreguntas--;
@@ -87,7 +89,7 @@ function inicio() {
         document.getElementById("opcion"+(i+1)).value = resAleatorias[i];
     }
 
-    setTimeout(()=>{
+    timeOut = setTimeout(()=>{
         alert("TIEMPO AGOTADO, pasando a la siguiente pregunta...");
         validarRespuesta("SinRespuesta");
     }, 10000);
