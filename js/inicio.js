@@ -5,7 +5,7 @@ const preguntas = [
     "¿Cuál es el país más pequeño del mundo?",
     "¿Cuál es el río más largo del mundo?",
     "¿Cómo le llaman los locales a la Ciudad de Nueva York?",
-    "¿Cómo se llaman los androides principales de Star War?",
+    "¿En qué año terminó la segunda guerra mundial?",
     "¿Dónde se celebraron los primeros Juegos Olimpicos modernos?",
     "¿Cuántos lados tiene un pentágono?",
     "¿A qué país pertenece la Isla de Pascua?"
@@ -13,14 +13,14 @@ const preguntas = [
 
 const respuestas = [
     ["Flor de Cerezo", "Girasol", "Orquideas", "Margarita"],
-    ["Canguro", "León", "Hipopótamo", "Flamenco"],
+    ["Canguro", "León", "Hipopotamo", "Flamenco"],
     ["Constantinopla", "Roma", "Madrid", "Hispania"],
-    ["El Vaticano", "Mónaco", "Puerto Rico", "Marbella"],
-    ["Río Nilo", "Río del Amazonas", "Río Rin", "Río Misisipi"],
+    ["El Vaticano", "Monaco", "Puerto Rico", "Marbella"],
+    ["Rio Nilo", "Rio del Amazonas", "Rio Rin", "Rio Misisipi"],
     ["Gotham", "Gohan", "City", "New Jersey"],
-    ["C3PO y R2D2", "OP3C y 2DR2", "C3PO y D2R2", "CTPO y R2D2"],
+    ["1945", "1965", "1912", "1950"],
     ["Atenas", "Roma", "Constantinopla", "Moscú"],
-    ["Cinco", "Díez", "Dos", "Cuatro"],
+    ["5", "10", "2", "4"],
     ["Chile", "EEUU", "China", "Indonesia"]
 ];
 

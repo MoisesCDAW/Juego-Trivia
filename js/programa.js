@@ -1,24 +1,41 @@
 
 // VARIABLES
 let correcta, contadorPreguntas, cantidadPreguntas, finJuego;
+let timeOut;
 
 // ARRAYS VARIABLES
 let resAleatorias = [], sesionRespuestas = [];
 
 
 // FUNCIONES DEL PROGRAMA
+function temporizador(params) {
+    
+}
 
-function validarRespuesta(valor){
 
-    if (valor.value==correcta) {
-        alert("Respuesta CORRECTA");
-    }else {
-        alert("Respuesta INCORRECTA");
-    }
+function validarRespuesta(respuesta){
+    clearTimeout(timeOut);
+    let valida = false;
 
     cantidadPreguntas--;
     contadorPreguntas++;
 
+    if (respuesta!="SinRespuesta") {
+        if (isNaN(Number(respuesta))) {
+            respuesta = respuesta.toLowerCase();
+            if (respuesta.includes(correcta.toLowerCase())) {
+                valida = true;
+            }
+        }else {
+            respuesta = Number(respuesta);
+            if (!isNaN(Number(correcta))) {
+                valida = respuesta == correcta;
+            }
+        }
+    
+        valida ? alert("Respuesta CORRECTA"):alert("Respuesta INCORRECTA");
+    }
+    
     if (cantidadPreguntas>-1) {
         localStorage.setItem("cantidadPreguntas", cantidadPreguntas);
         localStorage.setItem("contadorPreguntas", contadorPreguntas);
@@ -68,9 +85,14 @@ function inicio() {
     document.getElementById("pregunta").innerHTML = localStorage.getItem("pregunta"+contadorPreguntas); 
 
     for (let i = 0; i < resAleatorias.length; i++) {
-        document.getElementById("boton"+(i+1)).innerHTML = resAleatorias[i];
-        document.getElementById("boton"+(i+1)).value = resAleatorias[i];
+        document.getElementById("opcion"+(i+1)).innerHTML = resAleatorias[i];
+        document.getElementById("opcion"+(i+1)).value = resAleatorias[i];
     }
+
+    timeOut = setTimeout(()=>{
+        alert("TIEMPO AGOTADO, pasando a la siguiente pregunta...");
+        validarRespuesta("SinRespuesta");
+    }, 10000);
 }
 
 inicio();
