@@ -8,10 +8,19 @@
 </head>
 <body>
     <p id="pregunta"></p>
-    <button value="" id="boton1" onclick="validarRespuesta(boton1)"></button>
+    <!-- <button value="" id="boton1" onclick="validarRespuesta(boton1)"></button>
     <button value="" id="boton2" onclick="validarRespuesta(boton2)"></button>
     <button value="" id="boton3" onclick="validarRespuesta(boton3)"></button>
-    <button value="" id="boton4" onclick="validarRespuesta(boton4)"></button>
+    <button value="" id="boton4" onclick="validarRespuesta(boton4)"></button> -->
+
+    <p id="opcion1"></p>
+    <p id="opcion2"></p>
+    <p id="opcion3"></p>
+    <p id="opcion4"></p>
+
+    <input type="text" id="respuesta" placeholder="Ingresa aquí tu respuesta">
+    <button value="enviar" onclick="validarRespuesta(document.getElementById('respuesta').value)">Enviar</button>
+
     <script src="js/programa.js"></script>
 </body>
 </html>
