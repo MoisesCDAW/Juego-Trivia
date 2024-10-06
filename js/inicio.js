@@ -16,7 +16,7 @@ const respuestas = [
     ["Canguro", "León", "Hipopotamo", "Flamenco"],
     ["Constantinopla", "Roma", "Madrid", "Hispania"],
     ["El Vaticano", "Monaco", "Puerto Rico", "Marbella"],
-    ["Rio Nilo", "Río del Amazonas", "Río Rin", "Río Misisipi"],
+    ["Rio Nilo", "Rio del Amazonas", "Rio Rin", "Rio Misisipi"],
     ["Gotham", "Gohan", "City", "New Jersey"],
     ["1945", "1965", "1912", "1950"],
     ["Atenas", "Roma", "Constantinopla", "Moscú"],

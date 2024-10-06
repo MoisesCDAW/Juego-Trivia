@@ -7,6 +7,10 @@ let resAleatorias = [], sesionRespuestas = [];
 
 
 // FUNCIONES DEL PROGRAMA
+function temporizador(params) {
+    
+}
+
 
 function validarRespuesta(respuesta){
     let valida = false;
@@ -14,20 +18,22 @@ function validarRespuesta(respuesta){
     cantidadPreguntas--;
     contadorPreguntas++;
 
-    if (isNaN(Number(respuesta))) {
-        respuesta = respuesta.toLowerCase();
-        if (respuesta.includes(correcta.toLowerCase())) {
-            valida = true;
+    if (respuesta!="SinRespuesta") {
+        if (isNaN(Number(respuesta))) {
+            respuesta = respuesta.toLowerCase();
+            if (respuesta.includes(correcta.toLowerCase())) {
+                valida = true;
+            }
+        }else {
+            respuesta = Number(respuesta);
+            if (!isNaN(Number(correcta))) {
+                valida = respuesta == correcta;
+            }
         }
-    }else {
-        respuesta = Number(respuesta);
-        if (!isNaN(Number(correcta))) {
-            valida = respuesta == correcta;
-        }
+    
+        valida ? alert("Respuesta CORRECTA"):alert("Respuesta INCORRECTA");
     }
-
-    valida ? alert("Respuesta CORRECTA"):alert("Respuesta INCORRECTA");;
-
+    
     if (cantidadPreguntas>-1) {
         localStorage.setItem("cantidadPreguntas", cantidadPreguntas);
         localStorage.setItem("contadorPreguntas", contadorPreguntas);
@@ -80,6 +86,11 @@ function inicio() {
         document.getElementById("opcion"+(i+1)).innerHTML = resAleatorias[i];
         document.getElementById("opcion"+(i+1)).value = resAleatorias[i];
     }
+
+    setTimeout(()=>{
+        alert("TIEMPO AGOTADO, pasando a la siguiente pregunta...");
+        validarRespuesta("SinRespuesta");
+    }, 10000);
 }
 
 inicio();
