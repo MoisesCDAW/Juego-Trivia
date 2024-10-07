@@ -24,7 +24,7 @@ const respuestas = [
     ["Chile", "EEUU", "China", "Indonesia"]
 ];
 
-let cantidadPreguntas = 5, numPregunta, inicioJuego;
+let cantidadPreguntas = 5, numPregunta, inicioJuego, puntuacionTop;
 let sesionPreguntas=[], sesionRespuestas=[];
 
 function selectPreguntas(){
@@ -47,7 +47,8 @@ function selectPreguntas(){
 function inicio(){
     selectPreguntas();
     inicioJuego = new Date().getTime();
-    localStorage.clear();                      // OJO, Se está vaciando el localStorage
+    puntuacionTop = localStorage.getItem("puntuacionTop");
+    localStorage.clear();
 
     localStorage.setItem("tiempoInicio", inicioJuego);
 
@@ -61,6 +62,7 @@ function inicio(){
         }   
     }
 
+    localStorage.setItem("puntuacionTop", puntuacionTop);
     localStorage.setItem("cantidadPreguntas", cantidadPreguntas-1);
     localStorage.setItem("contadorPreguntas", 0);
 

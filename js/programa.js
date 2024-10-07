@@ -1,24 +1,26 @@
 
 // VARIABLES
 let correcta, contadorPreguntas, cantidadPreguntas, finJuego;
-let timeOut;
+let timeOut, intervalo, puntuacionSesion, contadorSeg=0;
 
 // ARRAYS VARIABLES
 let resAleatorias = [], sesionRespuestas = [];
 
 
 // FUNCIONES DEL PROGRAMA
-function temporizador(params) {
-    
-}
-
 
 function validarRespuesta(respuesta){
     clearTimeout(timeOut);
+    clearInterval(intervalo);
+
     let valida = false;
 
     cantidadPreguntas--;
     contadorPreguntas++;
+
+    if (contadorSeg<=5) {
+        puntuacionSesion += Math.ceil(Math.random()*3+0);
+    }
 
     if (respuesta!="SinRespuesta") {
         if (isNaN(Number(respuesta))) {
@@ -33,12 +35,19 @@ function validarRespuesta(respuesta){
             }
         }
     
-        valida ? alert("Respuesta CORRECTA"):alert("Respuesta INCORRECTA");
+        if(valida){
+            puntuacionSesion += 10;
+            alert("Respuesta CORRECTA");
+        }else {
+            alert("Respuesta INCORRECTA");
+        }
     }
     
     if (cantidadPreguntas>-1) {
         localStorage.setItem("cantidadPreguntas", cantidadPreguntas);
         localStorage.setItem("contadorPreguntas", contadorPreguntas);
+        localStorage.setItem("puntuacionSesion", puntuacionSesion);
+
         window.open("preguntas.html", "_self");
 
     }else{
@@ -73,6 +82,7 @@ function ordenAleatorio(arrayRespuestas){
 function inicio() {
     cantidadPreguntas = localStorage.getItem("cantidadPreguntas");
     contadorPreguntas = localStorage.getItem("contadorPreguntas");
+    puntuacionSesion = Number(localStorage.getItem("puntuacionSesion"));
 
     for (let i = 0; i < 4; i++) {
         sesionRespuestas.push(localStorage.getItem("respuestas"+contadorPreguntas+"."+i));
@@ -88,6 +98,10 @@ function inicio() {
         document.getElementById("opcion"+(i+1)).innerHTML = resAleatorias[i];
         document.getElementById("opcion"+(i+1)).value = resAleatorias[i];
     }
+
+    intervalo = setInterval(()=>{
+        contadorSeg++;
+    }, 1000);
 
     timeOut = setTimeout(()=>{
         alert("TIEMPO AGOTADO, pasando a la siguiente pregunta...");
