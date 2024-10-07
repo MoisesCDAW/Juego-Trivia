@@ -1,31 +1,56 @@
 function inicio(){
-    // localStorage.clear();
-
-    let tiempoInicio, tiempoFin, tiempoTotal, puntuacionTop, puntuacionSesion;
+    let tiempoInicio, tiempoFin, tiempoTotal, puntuacionTop, puntuacionSesion, bonificacion;
+    let penitenciaTiempoExcesivo=-5, totalPuntos=0;
 
     puntuacionTop = Number(localStorage.getItem("puntuacionTop"));
     puntuacionSesion = Number(localStorage.getItem("puntuacionSesion"));
     tiempoInicio = Number(localStorage.getItem("tiempoInicio"));
     tiempoFin = Number(localStorage.getItem("tiempoFin"));
-    tiempoTotal = tiempoFin - tiempoInicio;
-
+    bonificacion = Number(localStorage.getItem("bonificacion"));
     
-    if (tiempoTotal<60000) { // Si es menor a un minuto el mensaje será en seg
-        document.getElementById("tiempoTotal").innerHTML += (tiempoTotal/1000).toFixed(2) +" segundo(s)";
-    }else { // Si no, será en min
-        document.getElementById("tiempoTotal").innerHTML += (tiempoTotal/60000).toFixed(2)  +" minuto(s)"; 
+    localStorage.clear();
+
+    tiempoTotal = tiempoFin - tiempoInicio;
+    tiempoTotal = (tiempoTotal/1000).toFixed(2);
+
+    if (isNaN(puntuacionSesion)) {
+        puntuacionSesion = 0;
     }
 
-    if (puntuacionSesion>puntuacionTop) {
+    if (isNaN(puntuacionTop)) {
         puntuacionTop = puntuacionSesion;
-        localStorage.clear();
         localStorage.setItem("puntuacionTop", puntuacionTop);
-        document.getElementById("puntuacionTop").innerHTML = "Nueva puntuación Máxima : " + puntuacionTop + " puntos";
-        document.getElementById("puntuacionSesion").innerHTML = "";
-    }else {
-        document.getElementById("puntuacionTop").innerHTML += puntuacionTop + " puntos";
-        document.getElementById("puntuacionSesion").innerHTML += puntuacionSesion + " puntos";
     }
+
+    if (isNaN(bonificacion)) {
+        bonificacion = 0;
+    }
+
+
+    totalPuntos += (puntuacionSesion + bonificacion);
+
+    if (totalPuntos>puntuacionTop) {
+        puntuacionTop = totalPuntos;
+        localStorage.setItem("puntuacionTop", puntuacionTop);
+        document.getElementById("puntuacionTop").innerHTML = "Nueva puntuación Máxima: ";
+    }
+
+    if (tiempoTotal>40) {
+        totalPuntos += penitenciaTiempoExcesivo;
+    }else {
+        penitenciaTiempoExcesivo =0;
+    }
+
+    if (totalPuntos<0) {
+        totalPuntos = 0;
+    }
+    
+    document.getElementById("tiempoTotal").innerHTML += tiempoTotal +" segundos";
+    document.getElementById("puntuacionTop").innerHTML += puntuacionTop + " puntos";
+    document.getElementById("puntuacionSesion").innerHTML += puntuacionSesion + " puntos"; 
+    document.getElementById("bonificacion").innerHTML += bonificacion + " puntos";
+    document.getElementById("penitencia").innerHTML += penitenciaTiempoExcesivo + " puntos";
+    document.getElementById("totalPuntos").innerHTML += totalPuntos + " puntos";
 }
 
-inicio();
+inicio();   

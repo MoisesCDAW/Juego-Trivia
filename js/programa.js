@@ -1,7 +1,7 @@
 
 // VARIABLES
 let correcta, contadorPreguntas, cantidadPreguntas, finJuego;
-let timeOut, intervalo, puntuacionSesion, contadorSeg=0;
+let timeOut, intervalo, puntuacionSesion, contadorSeg=0, bonificacion=0;
 
 // ARRAYS VARIABLES
 let resAleatorias = [], sesionRespuestas = [];
@@ -19,7 +19,7 @@ function validarRespuesta(respuesta){
     contadorPreguntas++;
 
     if (contadorSeg<=5) {
-        puntuacionSesion += Math.ceil(Math.random()*3+0);
+        bonificacion += Math.ceil(Math.random()*3+0);
     }
 
     if (respuesta!="SinRespuesta") {
@@ -47,6 +47,7 @@ function validarRespuesta(respuesta){
         localStorage.setItem("cantidadPreguntas", cantidadPreguntas);
         localStorage.setItem("contadorPreguntas", contadorPreguntas);
         localStorage.setItem("puntuacionSesion", puntuacionSesion);
+        localStorage.setItem("bonificacion", bonificacion);
 
         window.open("preguntas.html", "_self");
 
