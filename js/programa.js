@@ -43,15 +43,17 @@ function validarRespuesta(respuesta){
         }
     }
     
+
+    localStorage.setItem("puntuacionSesion", puntuacionSesion);
+
     if (cantidadPreguntas>-1) {
         localStorage.setItem("cantidadPreguntas", cantidadPreguntas);
         localStorage.setItem("contadorPreguntas", contadorPreguntas);
-        localStorage.setItem("puntuacionSesion", puntuacionSesion);
-        localStorage.setItem("bonificacion", bonificacion);
 
         window.open("preguntas.html", "_self");
 
     }else{
+        console.log(puntuacionSesion);
         finJuego = new Date().getTime(); // Se crea con la fecha actual  
         localStorage.setItem("tiempoFin", finJuego); // Devuelve el resultado en miliseg
         
@@ -84,6 +86,8 @@ function inicio() {
     cantidadPreguntas = localStorage.getItem("cantidadPreguntas");
     contadorPreguntas = localStorage.getItem("contadorPreguntas");
     puntuacionSesion = Number(localStorage.getItem("puntuacionSesion"));
+    
+    bonificacion = Number(localStorage.getItem("bonificacion"))
 
     for (let i = 0; i < 4; i++) {
         sesionRespuestas.push(localStorage.getItem("respuestas"+contadorPreguntas+"."+i));
