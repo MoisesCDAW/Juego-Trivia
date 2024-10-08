@@ -56,7 +56,8 @@ function validarRespuesta(respuesta){
         console.log(puntuacionSesion);
         finJuego = new Date().getTime(); // Se crea con la fecha actual  
         localStorage.setItem("tiempoFin", finJuego); // Devuelve el resultado en miliseg
-        
+        localStorage.setItem("bonificacion", bonificacion);
+
         window.open("resultados.html", "_self");
     }
     
