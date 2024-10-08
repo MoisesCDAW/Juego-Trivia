@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "bangers";
+    src: url("../fuentes/Bangers-Regular.ttf");
+}
+
+@font-face {
+    font-family: "inter";
+    src: url("../fuentes/Inter_18pt-Regular.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "inter";
+    background: linear-gradient(90deg,  
+    #ccccff,
+    #ccd1ff,
+    #ccd5ff,
+    #ccdaff,
+    #ccdfff,
+    #cce3ff,
+    #cce8ff,
+    #ccecff,
+    #ccf1ff,
+    #ccf6ff,
+    #ccfaff,
+    #ccffff);
+}
+
+.contenedor{
+    width: 100%;
+    height: 80vh;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.divisor {
+    width: 2px;
+    height: 80%;
+    background-color: black;
+}
+
+.lado-derecho {
+    text-align: right;
+    width: 45%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-eslogan {
+    width: 100%;
+    height: 30%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+}
+
+.titulo-eslogan h1 {
+    font-family: "bangers";
+    letter-spacing: 1.5px;
+}
+
+.boton-record {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15%;
+}
+
+.boton-record button {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    align-self: end;
+}
+
+.boton-record button:hover{
+    background-color: rgb(74, 74, 74);
+    cursor: pointer;
+}
+
+.lado-izquierdo {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 60%;
+    padding-top: 5%;
+    gap: 5%;
+}
+ 
+.instrucciones {
+    padding-left: 5%;
+    line-height: 1.7;
+}

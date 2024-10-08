@@ -19,21 +19,21 @@ function inicio(){
 
     if (isNaN(puntuacionTop)) {
         puntuacionTop = puntuacionSesion;
-        localStorage.setItem("puntuacionTop", puntuacionTop);
     }
 
     if (isNaN(bonificacion)) {
         bonificacion = 0;
     }
 
-
     totalPuntos += (puntuacionSesion + bonificacion);
 
     if (totalPuntos>puntuacionTop) {
         puntuacionTop = totalPuntos;
-        localStorage.setItem("puntuacionTop", puntuacionTop);
         document.getElementById("puntuacionTop").innerHTML = "Nueva puntuación Máxima: ";
     }
+
+    localStorage.setItem("puntuacionTop", puntuacionTop);
+
 
     if (tiempoTotal>40) {
         totalPuntos += penitenciaTiempoExcesivo;
@@ -51,6 +51,12 @@ function inicio(){
     document.getElementById("bonificacion").innerHTML += bonificacion + " puntos";
     document.getElementById("penitencia").innerHTML += penitenciaTiempoExcesivo + " puntos";
     document.getElementById("totalPuntos").innerHTML += totalPuntos + " puntos";
+
 }
 
 inicio();   
+
+
+function reiniciar(){
+    window.open("index.html", "_self");
+}

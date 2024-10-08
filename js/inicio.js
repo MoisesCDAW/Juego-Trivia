@@ -27,6 +27,15 @@ const respuestas = [
 let cantidadPreguntas = 5, numPregunta, inicioJuego, puntuacionTop;
 let sesionPreguntas=[], sesionRespuestas=[];
 
+function getPuntuacionTop() {
+    let aux = localStorage.getItem("puntuacionTop");
+    if (isNaN(Number(aux))) {
+        aux=0;
+    }
+    document.getElementById("puntuacionTop").innerHTML += "<strong>" + aux + " puntos</strong>";
+}
+
+
 function selectPreguntas(){
     let aux = cantidadPreguntas;
     let pregunta;
@@ -48,7 +57,6 @@ function inicio(){
     selectPreguntas();
     inicioJuego = new Date().getTime();
     puntuacionTop = localStorage.getItem("puntuacionTop");
-    localStorage.clear();
 
     localStorage.setItem("tiempoInicio", inicioJuego);
 
