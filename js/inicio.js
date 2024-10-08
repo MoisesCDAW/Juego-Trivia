@@ -32,7 +32,7 @@ function getPuntuacionTop() {
     if (isNaN(Number(aux))) {
         aux=0;
     }
-    alert("PUNTUACIÓN MAX. ACTUAL: " + aux + " puntos");
+    document.getElementById("puntuacionTop").innerHTML += "<strong>" + aux + " puntos</strong>";
 }
 
 

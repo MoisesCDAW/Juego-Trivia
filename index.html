@@ -7,20 +7,35 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1>Inicio</h1>
-    <div class="instrucciones">
-        <p>¿En qué se basa el juego?</p>
-        <ol>
-            <li>Responder 5 preguntas aleatorias de cualquier tema</li>
-            <li>Se tienen que ESCRIBIR las respuestas</li>
-            <li>Se pueden ingresar Mayús., Minús. y espacios</li>
-            <li>10 seg para responder cada pregunta</li>
-            <li>Si el tiempo final &gt; 40 seg = -5 puntos al TOTAL</li>
-            <li>Responder una pregunta en &lt; 5 seg = puntos extras aleatorios (1 - 3)</li>
-        </ol>
+    <div class="contenedor">
+        <div class="lado-derecho">
+            <div class="titulo-eslogan">
+                <h1>Juego de Trivia</h1>
+                <p>Prueba tus conocimientos con esta trivia sencilla</p>
+            </div>
+            <div class="boton-record">
+                <button onclick=inicio()>INICIAR</button>
+                <p id="puntuacionTop">** Record Actual: <strong>0 puntos</strong> **</p>
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <div class="lado-izquierdo">
+            <p>INFORMACIÓN SOBRE EL JUEGO</p>
+            <div class="instrucciones">
+                <ol>
+                    <li>Responder 5 preguntas aleatorias de cualquier tema</li>
+                    <li>Se tienen que ESCRIBIR las respuestas</li>
+                    <li>Se pueden ingresar Mayús., Minús. y espacios</li>
+                    <li>10 seg para responder cada pregunta</li>
+                    <li>Si el tiempo final &gt; 40 seg = -5 puntos al TOTAL</li>
+                    <li>Responder una pregunta en &lt; 5 seg = puntos extras aleatorios (1 - 3)</li>
+                </ol>
+            </div>
+        </div>
+
     </div>
-    <button onclick=inicio()>Iniciar</button>
-    <button onclick=getPuntuacionTop()>Ver Puntuación Max.</button>
     <script src="js/inicio.js"></script>
 </body>
 </html>
