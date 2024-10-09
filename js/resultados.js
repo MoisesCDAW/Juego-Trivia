@@ -46,10 +46,10 @@ function inicio(){
     }
     
     document.getElementById("tiempoTotal").innerHTML += tiempoTotal +" segundos";
-    document.getElementById("puntuacionTop").innerHTML = "<strong>" + puntuacionTop + " puntos</strong>";
-    document.getElementById("puntuacionSesion").innerHTML += puntuacionSesion + " puntos"; 
-    document.getElementById("bonificacion").innerHTML += bonificacion + " puntos";
-    document.getElementById("penitencia").innerHTML += penitenciaTiempoExcesivo + " puntos";
+    document.getElementById("puntuacionTop").innerHTML += "<strong>" + puntuacionTop + " puntos</strong> **";
+    document.getElementById("puntuacionSesion").innerHTML += "<strong>" + puntuacionSesion + " puntos</strong>"; 
+    document.getElementById("bonificacion").innerHTML += "<strong>" + bonificacion + " puntos</strong>";
+    document.getElementById("penitencia").innerHTML += "<strong>" + penitenciaTiempoExcesivo + " puntos</strong>";
     document.getElementById("totalPuntos").innerHTML += totalPuntos + " puntos";
 
 }
