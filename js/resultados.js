@@ -27,19 +27,18 @@ function inicio(){
 
     totalPuntos += (puntuacionSesion + bonificacion);
 
+    if (tiempoTotal>40) {
+        totalPuntos += penitenciaTiempoExcesivo;
+    }else {
+        penitenciaTiempoExcesivo =0;
+    }
+
     if (totalPuntos>puntuacionTop) {
         puntuacionTop = totalPuntos;
         document.getElementById("puntuacionTop").innerHTML = "Nueva puntuación Máxima: ";
     }
 
     localStorage.setItem("puntuacionTop", puntuacionTop);
-
-
-    if (tiempoTotal>40) {
-        totalPuntos += penitenciaTiempoExcesivo;
-    }else {
-        penitenciaTiempoExcesivo =0;
-    }
 
     if (totalPuntos<0) {
         totalPuntos = 0;
