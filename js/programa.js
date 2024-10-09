@@ -1,7 +1,7 @@
 
 // VARIABLES
 let correcta, contadorPreguntas, cantidadPreguntas, finJuego;
-let timeOut, intervalo, puntuacionSesion, contadorSeg=0, bonificacion=0;
+let timeOut, intervalo, puntuacionSesion, contadorSeg=0, bonificacion;
 
 // ARRAYS VARIABLES
 let resAleatorias = [], sesionRespuestas = [];
@@ -49,6 +49,7 @@ function validarRespuesta(respuesta){
     if (cantidadPreguntas>-1) {
         localStorage.setItem("cantidadPreguntas", cantidadPreguntas);
         localStorage.setItem("contadorPreguntas", contadorPreguntas);
+        localStorage.setItem("bonificacion", bonificacion);
 
         window.open("preguntas.html", "_self");
 
@@ -108,7 +109,7 @@ function inicio() {
     let contador=10;
     intervalo = setInterval(()=>{
         contador--;
-        
+
         if (contador!=0) {
             document.getElementById("temporizador").innerHTML = contador;
         }

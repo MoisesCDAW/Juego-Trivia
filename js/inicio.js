@@ -32,7 +32,7 @@ function getPuntuacionTop() {
     if (isNaN(Number(aux))) {
         aux=0;
     }
-    document.getElementById("puntuacionTop").innerHTML += "<strong>" + aux + " puntos</strong>";
+    document.getElementById("puntuacionTop").innerHTML += "<strong>" + aux + " puntos</strong> **";
 }
 
 
@@ -56,8 +56,6 @@ function selectPreguntas(){
 function inicio(){
     selectPreguntas();
     inicioJuego = new Date().getTime();
-    puntuacionTop = localStorage.getItem("puntuacionTop");
-
     localStorage.setItem("tiempoInicio", inicioJuego);
 
     for (let i = 0; i < sesionPreguntas.length; i++) {
@@ -76,3 +74,5 @@ function inicio(){
 
     window.open("preguntas.html", "_self");
 }
+
+getPuntuacionTop();
