@@ -18,10 +18,6 @@ function validarRespuesta(respuesta){
     cantidadPreguntas--;
     contadorPreguntas++;
 
-    if (contadorSeg<=5) {
-        bonificacion += Math.ceil(Math.random()*3+0);
-    }
-
     if (respuesta!="SinRespuesta") {
         if (isNaN(Number(respuesta))) {
             respuesta = respuesta.toLowerCase();
@@ -36,6 +32,9 @@ function validarRespuesta(respuesta){
         }
     
         if(valida){
+            if (contadorSeg<=5) {
+                bonificacion += Math.ceil(Math.random()*3+0);
+            }
             puntuacionSesion += 10;
             alert("Respuesta CORRECTA");
         }else {

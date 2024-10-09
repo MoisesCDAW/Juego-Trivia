@@ -17,6 +17,7 @@ function inicio(){
         puntuacionSesion = 0;
     }
 
+    console.log(puntuacionTop);
     if (isNaN(puntuacionTop)) {
         puntuacionTop = puntuacionSesion;
     }
@@ -25,27 +26,25 @@ function inicio(){
         bonificacion = 0;
     }
 
-    totalPuntos += (puntuacionSesion + bonificacion);
+    console.log(puntuacionTop);
+    totalPuntos = (puntuacionSesion + bonificacion);
 
     if (tiempoTotal>40) {
         totalPuntos += penitenciaTiempoExcesivo;
     }else {
         penitenciaTiempoExcesivo =0;
     }
+    
+    document.getElementById("tiempoTotal").innerHTML += tiempoTotal +" segundos";
 
     if (totalPuntos>puntuacionTop) {
         puntuacionTop = totalPuntos;
-        document.getElementById("puntuacionTop").innerHTML = "Nueva puntuación Máxima: ";
+        localStorage.setItem("puntuacionTop", puntuacionTop);
+        document.getElementById("puntuacionTop").innerHTML = "** Nueva puntuación Máxima: <strong>" + puntuacionTop + " puntos</strong> **";
+    }else {
+        document.getElementById("puntuacionTop").innerHTML += "<strong>" + puntuacionTop + " puntos</strong> **";
     }
 
-    localStorage.setItem("puntuacionTop", puntuacionTop);
-
-    if (totalPuntos<0) {
-        totalPuntos = 0;
-    }
-    
-    document.getElementById("tiempoTotal").innerHTML += tiempoTotal +" segundos";
-    document.getElementById("puntuacionTop").innerHTML += "<strong>" + puntuacionTop + " puntos</strong> **";
     document.getElementById("puntuacionSesion").innerHTML += "<strong>" + puntuacionSesion + " puntos</strong>"; 
     document.getElementById("bonificacion").innerHTML += "<strong>" + bonificacion + " puntos</strong>";
     document.getElementById("penitencia").innerHTML += "<strong>" + penitenciaTiempoExcesivo + " puntos</strong>";

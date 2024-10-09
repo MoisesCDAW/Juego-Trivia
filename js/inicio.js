@@ -28,11 +28,11 @@ let cantidadPreguntas = 5, numPregunta, inicioJuego, puntuacionTop;
 let sesionPreguntas=[], sesionRespuestas=[];
 
 function getPuntuacionTop() {
-    let aux = localStorage.getItem("puntuacionTop");
-    if (isNaN(Number(aux))) {
-        aux=0;
+    puntuacionTop = localStorage.getItem("puntuacionTop");
+    if (puntuacionTop==null) {
+        puntuacionTop=0;
     }
-    document.getElementById("puntuacionTop").innerHTML += "<strong>" + aux + " puntos</strong> **";
+    document.getElementById("puntuacionTop").innerHTML += "<strong>" + puntuacionTop + " puntos</strong> **";
 }
 
 
