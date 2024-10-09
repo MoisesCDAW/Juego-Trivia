@@ -37,10 +37,12 @@ body {
     }
   }
 
+  /* ========= GENERAL ========== */
+
 .contenedor{
     width: 70%;
     height: 70vh;
-    background: #fffffff7;
+    background: #fffffff0;
     border-radius: 20px;
     box-shadow: 0 0 20px #e5e5e5;
     display: flex;
@@ -55,39 +57,41 @@ body {
     background-color: #5c5c5c;
 }
 
-.lado-derecho {
-    text-align: right;
+.lado-izquierdo {
+    text-align: left;
     width: 45%;
     height: 80%;
     display: flex;
     flex-direction: column;
 }
 
-.titulo-eslogan {
+.titulo-cuerpo {
     width: 100%;
     height: 30%;
     margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: end;
     gap: 10%;
 }
 
-.titulo-eslogan h1 {
+.titulo-cuerpo h1 {
     font-family: "bangers";
     letter-spacing: 1.5px;
 }
 
-.boton-record {
+.boton-texto-izquierdo {
     width: 100%;
     height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: end;
     gap: 15%;
 }
 
-.boton-record button {
+.boton-texto-izquierdo button {
     background-color: #DF5A89;
     color: rgb(255, 255, 255);
     border: none;
@@ -95,17 +99,31 @@ body {
     height: 30px;
     font-size: 16px;
     border-radius: 5px;
-    align-self: end;
+    font-family: "inter";
 }
 
-.boton-record button:hover{
+.boton-texto-izquierdo button:hover{
     background-color: rgb(255, 255, 255);
     border: 1px solid black;
     color: rgb(67, 67, 67);
     cursor: pointer;
+    font-family: "inter";
 }
 
-.lado-izquierdo {
+.texto-izquierdo {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    text-align: right;
+    font-size: 16px;
+    height: 100%;
+}
+
+.texto-izquierdo h1 {
+    font-size: 20px;
+}
+
+.lado-derecho {
     display: flex;
     flex-direction: column;
     width: 45%;
@@ -113,8 +131,63 @@ body {
     padding-top: 5%;
     gap: 5%;
 }
- 
-.instrucciones {
+
+.boton-texto-derecho {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15%;
+}
+
+.boton-texto-derecho button{
+    background-color: #DF5A89;
+    color: rgb(255, 255, 255);
+    border: none;
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-family: "inter";
+}
+
+.boton-texto-derecho button:hover{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    color: rgb(67, 67, 67);
+    cursor: pointer;
+    font-family: "inter";
+}
+
+/* ========= INICIO ========== */
+.texto-derecho-lista {
     padding-left: 5%;
     line-height: 1.7;
+}
+
+
+/* ========= PREGUNTAS ========== */
+.boton-texto-derecho input{
+    width: 70%;
+    height: 20%;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+}
+
+.boton-texto-derecho input::placeholder{
+    color: #cfcfcf;
+}
+
+.preguntas {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20%;
+    gap: 5%;
+    margin-left: 5%;
+}
+.preguntas h1{
+    margin-bottom: 5%;
 }

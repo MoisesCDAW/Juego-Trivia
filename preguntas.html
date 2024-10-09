@@ -7,15 +7,27 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <p id="pregunta"></p>
-
-    <p id="opcion1"></p>
-    <p id="opcion2"></p>
-    <p id="opcion3"></p>
-    <p id="opcion4"></p>
-
-    <input type="text" id="respuesta" placeholder="Ingresa aquí tu respuesta">
-    <button value="enviar" onclick="validarRespuesta(document.getElementById('respuesta').value)">Enviar</button>
+    <div class="contenedor">
+        <div class="lado-izquierdo">
+            <div class="texto-izquierdo">
+                <div class="preguntas">
+                    <h1 id="pregunta"></h1>
+                    <p id="opcion1"></p>
+                    <p id="opcion2"></p>
+                    <p id="opcion3"></p>
+                    <p id="opcion4"></p>
+                </div>
+            </div>
+        </div>
+        <div class="divisor"></div>
+        <div class="lado-derecho">
+            <div class="boton-texto-derecho">
+                <input type="text" id="respuesta" autocomplete="off" placeholder="Ingresa aquí tu respuesta">
+                <button value="enviar" onclick="validarRespuesta(document.getElementById('respuesta').value)">ENVIAR</button>
+            </div>
+        </div>
+    </div>
+    
 
     <script src="js/programa.js"></script>
 </body>

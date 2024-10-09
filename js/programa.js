@@ -105,14 +105,14 @@ function inicio() {
         document.getElementById("opcion"+(i+1)).value = resAleatorias[i];
     }
 
-    intervalo = setInterval(()=>{
-        contadorSeg++;
-    }, 1000);
+    // intervalo = setInterval(()=>{
+    //     contadorSeg++;
+    // }, 1000);
 
-    timeOut = setTimeout(()=>{
-        alert("TIEMPO AGOTADO, pasando a la siguiente pregunta...");
-        validarRespuesta("SinRespuesta");
-    }, 10000);
+    // timeOut = setTimeout(()=>{
+    //     alert("TIEMPO AGOTADO, pasando a la siguiente pregunta...");
+    //     validarRespuesta("SinRespuesta");
+    // }, 10000);
 }
 
 inicio();
