@@ -105,14 +105,20 @@ function inicio() {
         document.getElementById("opcion"+(i+1)).value = resAleatorias[i];
     }
 
-    // intervalo = setInterval(()=>{
-    //     contadorSeg++;
-    // }, 1000);
+    let contador=10;
+    intervalo = setInterval(()=>{
+        contador--;
+        
+        if (contador!=0) {
+            document.getElementById("temporizador").innerHTML = contador;
+        }
+        
+        contadorSeg++;
 
-    // timeOut = setTimeout(()=>{
-    //     alert("TIEMPO AGOTADO, pasando a la siguiente pregunta...");
-    //     validarRespuesta("SinRespuesta");
-    // }, 10000);
+        if (contadorSeg==10) {
+            validarRespuesta("SinRespuesta");
+        }
+    }, 1000);
 }
 
 inicio();

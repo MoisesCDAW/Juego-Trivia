@@ -194,6 +194,15 @@ body {
     margin-bottom: 5%;
 }
 
+#temporizador {
+    font-family: "bangers";
+    font-size: 40px;
+    align-self: flex-end;
+    position: absolute;
+    top: 23%;
+    left: 78%;
+}
+
 /* ========= RESULTADOS ========== */
 
 .lado-derecho h1 {
