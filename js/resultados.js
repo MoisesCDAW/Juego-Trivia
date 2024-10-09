@@ -46,7 +46,7 @@ function inicio(){
     }
     
     document.getElementById("tiempoTotal").innerHTML += tiempoTotal +" segundos";
-    document.getElementById("puntuacionTop").innerHTML += puntuacionTop + " puntos";
+    document.getElementById("puntuacionTop").innerHTML = "<strong>" + puntuacionTop + " puntos</strong>";
     document.getElementById("puntuacionSesion").innerHTML += puntuacionSesion + " puntos"; 
     document.getElementById("bonificacion").innerHTML += bonificacion + " puntos";
     document.getElementById("penitencia").innerHTML += penitenciaTiempoExcesivo + " puntos";

@@ -7,14 +7,27 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1>Resultados</h1>
-    <p id="tiempoTotal">Tiempo TOTAL: </p>
-    <p id="puntuacionTop">Puntuacion Máxima: </p>
-    <p id="puntuacionSesion">Puntuación del juego actual: </p>
-    <p id="bonificacion">Extra por respuesta rápida (&lt;5 seg): </p>
-    <p id="penitencia">Penitencia por tiempo excesivo (tiempo &gt;40 seg): </p>
-    <p id="totalPuntos">TOTAL: </p>
-    <button onclick=reiniciar()>Volver a Inicio</button>
+    <div class="contenedor">
+        <div class="lado-izquierdo">
+            <div class="titulo-cuerpo">
+                <h1>Resultados</h1>
+                <p id="tiempoTotal">Tiempo TOTAL: </p>
+                <p id="totalPuntos">TOTAL: </p>
+                <button onclick=reiniciar()>Volver a Inicio</button>
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <div class="lado-derecho">
+            <h1>DETALLES</h1>
+            <p id="puntuacionSesion">Puntuación del juego actual: </p>
+            <p id="bonificacion">Extra por respuesta rápida (&lt;5 seg): </p>
+            <p id="penitencia">Penitencia por tiempo excesivo (tiempo &gt;40 seg): </p>
+            <p id="puntuacionTop">** Record Actual: <strong>0 puntos</strong> **</p>
+        </div>
+    </div>
+
     <script src="js/resultados.js"></script>
 </body>
 </html>

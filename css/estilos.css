@@ -188,6 +188,17 @@ body {
     gap: 5%;
     margin-left: 5%;
 }
+
 .preguntas h1{
     margin-bottom: 5%;
+}
+
+/* ========= RESULTADOS ========== */
+
+.lado-derecho h1 {
+    font-size: 20px;
+}
+
+#puntuacionTop {
+    font-size: 16px;
 }
