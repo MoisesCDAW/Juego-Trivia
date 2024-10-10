@@ -109,7 +109,7 @@ function ordenAleatorio(arrayRespuestas){
 /**
  * Inicio de la página. Recupera datos y los imprime en la página
  */
-function inicio() {
+function inicio_programa() {
     cantidadPreguntas = localStorage.getItem("cantidadPreguntas");
     contadorPreguntas = localStorage.getItem("contadorPreguntas");
     puntuacionSesion = Number(localStorage.getItem("puntuacionSesion"));
@@ -150,4 +150,4 @@ function inicio() {
     }, 1000);
 }
 
-inicio();
+inicio_programa();

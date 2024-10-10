@@ -9,7 +9,7 @@
  * - Uso del LocalStorage para recuperar y guardar datos
  * - El LocalStorage se vacía aquí
  */
-function inicio(){
+function inicio_resultados(){
     let tiempoInicio, tiempoFin, tiempoTotal, puntuacionTop, puntuacionSesion, bonificacion;
     let penitenciaTiempoExcesivo=-5, totalPuntos=0;
 
@@ -67,7 +67,7 @@ function inicio(){
 
 }
 
-inicio();  
+inicio_resultados();  
 
 /**
  * Envía al usuario a la página de inicio.
