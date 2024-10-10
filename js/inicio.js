@@ -1,3 +1,13 @@
+/**
+ * Juego de Trivia
+ * @author Moises Campos <moisescamposdaw@gmail.com>
+ */
+
+
+/**
+ * @constant {Array<String>} preguntas
+ * @constant {Array<String>} respuestas
+ */
 const preguntas = [
     "¿Cuál es la flor nacional de Japón?",
     "¿Cuál es el animal nacional de Australia?",
@@ -24,9 +34,21 @@ const respuestas = [
     ["Chile", "EEUU", "China", "Indonesia"]
 ];
 
+/**
+ * @var {Number} cantidadPreguntas
+ * @var {Number} numPregunta
+ * @var {Object} inicioJuego de tipo Date
+ * @var {Number} puntuacionTop
+ * @var {Array<String>} sesionPreguntas Array con las 5 preguntas
+ * @var {Array<String>} sesionRespuestas Array con todas las respuestas de las 5 preguntas
+ */
 let cantidadPreguntas = 5, numPregunta, inicioJuego, puntuacionTop;
 let sesionPreguntas=[], sesionRespuestas=[];
 
+
+/**
+ * Imprime el puntaje Top en la página de inicio
+ */
 function getPuntuacionTop() {
     puntuacionTop = localStorage.getItem("puntuacionTop");
 
@@ -36,7 +58,9 @@ function getPuntuacionTop() {
     document.getElementById("puntuacionTop").innerHTML += "<strong>" + puntuacionTop + " puntos</strong> **";
 }
 
-
+/**
+ * De la lista entera selecciona solo la cantidad de preguntas aleatoriamente
+ */
 function selectPreguntas(){
     let aux = cantidadPreguntas;
     let pregunta;
@@ -54,6 +78,9 @@ function selectPreguntas(){
 }
 
 
+/**
+ * Inicio de la página. Llama al selector de preguntas, recupera e imprime datos
+ */
 function inicio(){
     selectPreguntas();
     inicioJuego = new Date().getTime();
@@ -69,7 +96,6 @@ function inicio(){
         }   
     }
 
-    localStorage.setItem("puntuacionTop", puntuacionTop);
     localStorage.setItem("cantidadPreguntas", cantidadPreguntas-1);
     localStorage.setItem("contadorPreguntas", 0);
 

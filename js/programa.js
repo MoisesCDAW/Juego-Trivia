@@ -1,16 +1,32 @@
+/**
+ * Juego de Trivia
+ * @author Moises Campos <moisescamposdaw@gmail.com>
+ */
 
-// VARIABLES
+
+/**
+ * @var {String} correcta
+ * @var {Number} contadorPreguntas
+ * @var {Number} cantidadPreguntas
+ * @var {Object} finJuego de tipo Date
+ * @var {Number} intervalo identificador del intervalo
+ * @var {Number} puntuacionSesion
+ * @var {Number} contadorSeg si se pasa de 10seg, pasa a la siguiente pregunta
+ * @var {Number} bonificacion por respuesta < 5seg
+ * @var {Array<String>} resAleatorias
+ * @var {Array<String>} sesionRespuestas
+ */
 let correcta, contadorPreguntas, cantidadPreguntas, finJuego;
-let timeOut, intervalo, puntuacionSesion, contadorSeg=0, bonificacion;
-
-// ARRAYS VARIABLES
+let intervalo, puntuacionSesion, contadorSeg=0, bonificacion;
 let resAleatorias = [], sesionRespuestas = [];
 
 
-// FUNCIONES DEL PROGRAMA
-
+/**
+ * Evalúa la respuesta del usuario. Al finalizar las 5 preguntas
+ * guarda los resultados en el LocalStorage y abre la página resultados
+ * @param {String} respuesta 
+ */
 function validarRespuesta(respuesta){
-    clearTimeout(timeOut);
     clearInterval(intervalo);
 
     let valida = false;
@@ -18,19 +34,20 @@ function validarRespuesta(respuesta){
     cantidadPreguntas--;
     contadorPreguntas++;
 
+    // "SinRespuesta" por tiempo agotado
     if (respuesta!="SinRespuesta") {
-        if (isNaN(Number(respuesta))) {
+        if (typeof(respuesta)=="string") {
             respuesta = respuesta.toLowerCase();
             if (respuesta.includes(correcta.toLowerCase())) {
                 valida = true;
             }
         }else {
-            respuesta = Number(respuesta);
-            if (!isNaN(Number(correcta))) {
-                valida = respuesta == correcta;
+            if (typeof(respuesta)=="number") {
+                valida = respuesta == correcta; // Guarda true o false
             }
         }
     
+        // Puntaje, bonificación y mensaje
         if(valida){
             if (contadorSeg<=5) {
                 bonificacion += Math.ceil(Math.random()*3+0);
@@ -45,6 +62,7 @@ function validarRespuesta(respuesta){
 
     localStorage.setItem("puntuacionSesion", puntuacionSesion);
 
+    // Guardado de resultados y ejecución de página respectiva
     if (cantidadPreguntas>-1) {
         localStorage.setItem("cantidadPreguntas", cantidadPreguntas);
         localStorage.setItem("contadorPreguntas", contadorPreguntas);
@@ -64,6 +82,11 @@ function validarRespuesta(respuesta){
 }
 
 
+/**
+ * 
+ * @param {Array<String>} arrayRespuestas 
+ * @returns Nuevo orden para mostrar las posibles respuestas a la pregunta
+ */
 function ordenAleatorio(arrayRespuestas){
     let arrayAux = [];
     let indiceAleatorio, valor;
@@ -83,13 +106,19 @@ function ordenAleatorio(arrayRespuestas){
 }
 
 
+/**
+ * Inicio de la página. Recupera datos y los imprime en la página
+ */
 function inicio() {
     cantidadPreguntas = localStorage.getItem("cantidadPreguntas");
     contadorPreguntas = localStorage.getItem("contadorPreguntas");
     puntuacionSesion = Number(localStorage.getItem("puntuacionSesion"));
-    
     bonificacion = Number(localStorage.getItem("bonificacion"))
 
+    // Se imprime la pregunta
+    document.getElementById("pregunta").innerHTML = localStorage.getItem("pregunta"+contadorPreguntas); 
+
+    // Se guardan las posibles respuestas para la pregunta
     for (let i = 0; i < 4; i++) {
         sesionRespuestas.push(localStorage.getItem("respuestas"+contadorPreguntas+"."+i));
     }
@@ -98,13 +127,13 @@ function inicio() {
 
     resAleatorias = ordenAleatorio(sesionRespuestas);
 
-    document.getElementById("pregunta").innerHTML = localStorage.getItem("pregunta"+contadorPreguntas); 
-
+    // Imprime las diferentes posibles respuestas
     for (let i = 0; i < resAleatorias.length; i++) {
         document.getElementById("opcion"+(i+1)).innerHTML = resAleatorias[i];
         document.getElementById("opcion"+(i+1)).value = resAleatorias[i];
     }
 
+    // Controla que el usuario responda en < 10seg
     let contador=10;
     intervalo = setInterval(()=>{
         contador--;
