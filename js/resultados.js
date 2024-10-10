@@ -17,8 +17,8 @@ function inicio(){
         puntuacionSesion = 0;
     }
 
-    console.log(puntuacionTop);
     if (isNaN(puntuacionTop)) {
+        console.log("A cero");
         puntuacionTop = puntuacionSesion;
     }
 
@@ -26,7 +26,6 @@ function inicio(){
         bonificacion = 0;
     }
 
-    console.log(puntuacionTop);
     totalPuntos = (puntuacionSesion + bonificacion);
 
     if (tiempoTotal>40) {
@@ -39,11 +38,12 @@ function inicio(){
 
     if (totalPuntos>puntuacionTop) {
         puntuacionTop = totalPuntos;
-        localStorage.setItem("puntuacionTop", puntuacionTop);
         document.getElementById("puntuacionTop").innerHTML = "** Nueva puntuación Máxima: <strong>" + puntuacionTop + " puntos</strong> **";
     }else {
         document.getElementById("puntuacionTop").innerHTML += "<strong>" + puntuacionTop + " puntos</strong> **";
     }
+
+    localStorage.setItem("puntuacionTop", puntuacionTop);
 
     document.getElementById("puntuacionSesion").innerHTML += "<strong>" + puntuacionSesion + " puntos</strong>"; 
     document.getElementById("bonificacion").innerHTML += "<strong>" + bonificacion + " puntos</strong>";

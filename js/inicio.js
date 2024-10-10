@@ -29,6 +29,7 @@ let sesionPreguntas=[], sesionRespuestas=[];
 
 function getPuntuacionTop() {
     puntuacionTop = localStorage.getItem("puntuacionTop");
+
     if (puntuacionTop==null) {
         puntuacionTop=0;
     }
